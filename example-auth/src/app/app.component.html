@@ -1,0 +1,26 @@
+﻿<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark navbar-collapse justify-content-end" *ngIf="currentUser">
+    <div class="navbar-nav ">
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+</nav>
+
+<!-- main app container -->
+
+<div class="jumbotron text-left" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg); background-size: cover; height:100vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                <alert></alert>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+
+
+<!-- credits -->
+<!-- if u wanna write-->
+
