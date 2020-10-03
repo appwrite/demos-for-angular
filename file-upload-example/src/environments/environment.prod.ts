@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  endpoint: '', // replace with your own appwrite server ip
+  project: '' // replace with your own appwrite project id
 };
