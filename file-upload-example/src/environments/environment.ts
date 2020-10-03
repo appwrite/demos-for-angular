@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  endpoint: '', // replace with your own appwrite server ip
+  project: '' // replace with your own appwrite project id
 };
 
 /*
