@@ -134,6 +134,6 @@ Everything else is plain old Angular stuff and wiring together our created `Appw
 
 ## Congratulations! 🥳 🥳 🥳
 
-Give yourself a pat on the back, since you just successfully created a file upload web app using Appwrite and Angular! You should now have enough knowledge in order to use the Storage API with Appwrite and Angular and if you have any more questions do not hesitate to contact us on [Discord](https://discord.gg/ZFwqr3S) and if you notice any errors with this tutorial then feel free to raise an Issue or PR in the [GitHub of this tutorial](https://github.com/appwrite/demos-for-angular/).
+Give yourself a pat on the back, since you just successfully created a file upload web app using Appwrite and Angular! You should now have enough knowledge in order to use the Storage API with Appwrite and Angular and if you have any more questions do not hesitate to contact us on [Discord](https://appwrite.io/discord) and if you notice any errors with this tutorial then feel free to raise an Issue or PR in the [GitHub of this tutorial](https://github.com/appwrite/demos-for-angular/).
 
 Thank you for following the tutorial from all of us at the Appwrite Team.
