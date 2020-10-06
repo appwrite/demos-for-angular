@@ -78,7 +78,7 @@ Removing and uploading a file requires a valid user session, we are only focusin
   }
 ```
 
-We just need to pass through our `File` to upload and a set permissions. The first array is an array for `read` permissions, the second is for `write`. For this tutorial we wil use `*` (wildcard) which means this is available publicly. You can learn more about permissions [here](https://appwrite.io/docs/permissions).
+We just need to pass through our `File` to upload and a set permissions. The first array is an array for `read` and the second is for `write` permissions. For this tutorial we wil use `*` (wildcard) which means this is available publicly. You can learn more about permissions [here](https://appwrite.io/docs/permissions).
 
 #### Listing the files
 
