@@ -50,7 +50,7 @@ export const environment = {
 
 ## Working with Appwrite
 
-For working with Appwrite we will use a a service (`src/app/appwrite.service.ts`). Most of the service's methods is just a wrapper around Appwrite's SDK Storage API methods.   
+For working with Appwrite, we will use a a service (`src/app/appwrite.service.ts`). Most of the service's methods is just a wrapper around Appwrite's SDK Storage API methods.   
 I'll wrap every promise around an `Observable` to be consistent with Angular's built-in `HttpClient`.
 
 ### Detail about our service
