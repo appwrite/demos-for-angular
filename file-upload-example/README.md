@@ -13,7 +13,7 @@ This is what we will go through in details:
 ## Prerequisites
 
 -   A Recent Version of NodeJS
--   Npm or yarn (I'll you npm for this tutorial for the sake of simplicity)
+-   Npm or yarn (I'll use npm for this tutorial for the sake of simplicity)
 -   [A locally running appwrite instance](https://appwrite.io/docs/installation).
 -   Create a user for testing
 
