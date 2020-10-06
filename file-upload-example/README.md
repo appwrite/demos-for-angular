@@ -118,7 +118,7 @@ To preview a file you'll need the `fileId` and optionally you can also set `widt
   }
 ```
 
-To get a download link we'll need the `fileId` and this will return a simple string that we can bind to an `a` tag `href` property.
+To get a download link, we'll need the `fileId` and this will return a simple string that we can bind to an `a` tag `href` property.
 
 ### Closing words
 
