@@ -21,7 +21,7 @@ This is what we will go through in details:
 
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-> You can also change the port if `4200` is already in use with `npm start -- --port=4300`
+> You can also change the port if `4200` is already in use with the following command `npm start -- --port=4300`
 
 ## Getting Started
 
