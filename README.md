@@ -1,219 +1,73 @@
 # demos-for-angular
 Demos and tutorials for getting started with Appwrite + Angular
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# To start the angular app in your favourite IDE.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### Install Bootstrap
- npm install bootstrap
+# Getting Started for Web
+## Appwrite is a development platform providing you easy yet powerful API and management console to get your next project up and running quickly.
 
-### Include the CSS path of Bootstrap in styles array in the angular.json.
- "styles": ["src/styles.css","node_modules/bootstrap/dist/css/bootstrap.min.css"]
+## This tutorial will help you start using Appwrite products and build your next project. Before starting, make sure you have followed the Appwrite installation guide, and you have an Appwrite server instance up and running on your host machine or server.
 
-### To open app in browser.
- ng serve --open
+## Create Your First Appwrite Project
+Go to your new Appwrite console and once inside click the  icon in the top navigation header or on the 'Create Project' button on your console homepage. Choose a name for your project and click create to get started.
 
-### Install jsPDF Package
- npm install jspdf
+## Add your Web Platform
+For you to init your SDK and interact with Appwrite services you need to add a web platform to your project. To add a new platform, go to your Appwrite console, choose the project you created in the step before and click the 'Add Platform' button.
 
- import * as jsPDF from 'jspdf'
+## From the options, choose to add a web platform and add your client app hostname. By adding your hostname to your project platform you are allowing cross-domain communication between your project and the Appwrite API.
 
-### Add Data
-USERS = [
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "email": "sincere@april.biz",
-      "phone": "1-770-736-8031 x56442"
-    },
-    {
-      "id": 2,
-      "name": "Ervin Howell",
-      "email": "shanna@melissa.tv",
-      "phone": "010-692-6593 x09125"
-    },
-    {
-      "id": 3,
-      "name": "Clementine Bauch",
-      "email": "nathan@yesenia.net",
-      "phone": "1-463-123-4447",
-    },
-    {
-      "id": 4,
-      "name": "Patricia Lebsack",
-      "email": "julianne@kory.org",
-      "phone": "493-170-9623 x156"
-    },
-    {
-      "id": 5,
-      "name": "Chelsey Dietrich",
-      "email": "lucio@annie.ca",
-      "phone": "(254)954-1289"
-    },
-    {
-      "id": 6,
-      "name": "Mrs. Dennis",
-      "email": "karley@jasper.info",
-      "phone": "1-477-935-8478 x6430"
-    }
-  ];
-  
-  
-  ### open data
-   public openPDF():void {
-    let DATA = this.htmlData.nativeElement;
-    let doc = new jsPDF('p','pt', 'a4');
-    doc.fromHTML(DATA.innerHTML,15,15);
-    doc.output('dataurlnewwindow');
-  }
-  
-  ### Download PDF in Angular
-  public downloadPDF():void {
-    let DATA = this.htmlData.nativeElement;
-    let doc = new jsPDF('p','pt', 'a4');
+## Get Appwrite JS SDK
+NPM
+## # Use Javascript package manager, NPM from your command line to add Appwrite SDK to your project.
 
-    let handleElement = {
-      '#editor':function(element,renderer){
-        return true;
-      }
-    };
-    doc.fromHTML(DATA.innerHTML,15,15,{
-      'width': 200,
-      'elementHandlers': handleElement
-    });
+npm install appwrite
 
-    doc.save('angular-demo.pdf');
-  }
-  
- ### Bootstrap Table View
-  <div class="col-md-8" id="htmlData" #htmlData>
-      <table class="table table-bordered">
-        <tr class="table-primary">
-          <th>Id</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Phone</th>
-        </tr>
-        <tr *ngFor="let user of USERS">
-          <th>{{user.id}}</th>
-          <td>{{user.name}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.phone}}</td>
-        </tr>
-      </table>
-    </div>
-###### add open button
-    <div class="col-md-4 text-right">
-   <button class="btn btn-success btn-block" (click)="openPDF()">Open PDF</button>
-   <button class="btn btn-danger btn-block" (click)="downloadPDF()">Download PDF</button>
-</div>
+## If you're using a bundler (like Browserify or webpack), you can import the Appwrite module when you need it:
 
-#### The Final Code
-#### Next, open app.component.ts file and add the following code.
+import * as Appwrite from "appwrite";
 
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import * as jsPDF from 'jspdf'
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-
-export class AppComponent {
-
-  @ViewChild('htmlData') htmlData:ElementRef;
-
-  USERS = [
-    {
-      "id": 1,
-      "name": "Leanne Graham",
-      "email": "sincere@april.biz",
-      "phone": "1-770-736-8031 x56442"
-    },
-    {
-      "id": 2,
-      "name": "Ervin Howell",
-      "email": "shanna@melissa.tv",
-      "phone": "010-692-6593 x09125"
-    },
-    {
-      "id": 3,
-      "name": "Clementine Bauch",
-      "email": "nathan@yesenia.net",
-      "phone": "1-463-123-4447",
-    },
-    {
-      "id": 4,
-      "name": "Patricia Lebsack",
-      "email": "julianne@kory.org",
-      "phone": "493-170-9623 x156"
-    },
-    {
-      "id": 5,
-      "name": "Chelsey Dietrich",
-      "email": "lucio@annie.ca",
-      "phone": "(254)954-1289"
-    },
-    {
-      "id": 6,
-      "name": "Mrs. Dennis",
-      "email": "karley@jasper.info",
-      "phone": "1-477-935-8478 x6430"
-    }
-  ];
-
-  constructor() { }
-
-  public openPDF():void {
-    let DATA = this.htmlData.nativeElement;
-    let doc = new jsPDF('p','pt', 'a4');
-    doc.fromHTML(DATA.innerHTML,15,15);
-    doc.output('dataurlnewwindow');
-  }
+CDN
 
 
-  public downloadPDF():void {
-    let DATA = this.htmlData.nativeElement;
-    let doc = new jsPDF('p','pt', 'a4');
+## To install with a CDN (content delivery network) add the following scripts to the bottom of your tag, but before you use any Appwrite services:
 
-    let handleElement = {
-      '#editor':function(element,renderer){
-        return true;
-      }
-    };
-    doc.fromHTML(DATA.innerHTML,15,15,{
-      'width': 200,
-      'elementHandlers': handleElement
-    });
+<script src="https://cdn.jsdelivr.net/npm/appwrite@1.1.0"></script>
 
-    doc.save('angular-demo.pdf');
-  }
-}
+Init your SDK
+Initialize your SDK code with your project ID which can be found in your project settings page.
 
-<div class="container">
-  <div class="row">
+// Init your JS SDK
+var appwrite = new Appwrite();
 
-    <div class="col-md-8" id="htmlData" #htmlData>
-      <table class="table table-bordered">
-        <tr class="table-primary">
-          <th>Id</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Phone</th>
-        </tr>
-        <tr *ngFor="let user of USERS">
-          <th>{{user.id}}</th>
-          <td>{{user.name}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.phone}}</td>
-        </tr>
-      </table>
-    </div>
+appwrite
+    .setEndpoint('http://localhost/v1') // Set only when using self-hosted solution
+    .setProject('455x34dfkj')
+;
 
-    <div class="col-md-4 text-right">
-      <button class="btn btn-success btn-block" (click)="openPDF()">Open PDF</button>
-      <button class="btn btn-danger btn-block" (click)="downloadPDF()">Download PDF</button>
-    </div>
 
-  </div>
-</div>
+##  Make Your First Request
+##  Once your SDK object is set, access any of the Appwrite services and choose any request to send. Full documentation for any service method you would like to use can be found in your SDK documentation or in the API References section.
+
+// Register User
+appwrite
+    .account.create('me@example.com', 'password', 'Jane Doe')
+        .then(function (response) {
+            console.log(response);
+        }, function (error) {
+            console.log(error);
+        });
+
+#### Full Example
+// Init your JS SDK
+var appwrite = new Appwrite();
+
+appwrite
+    .setProject('455x34dfkj');
+
+// Register User
+appwrite
+    .account.create('me@example.com', 'password', 'Jane Doe')
+        .then(function (response) {
+            console.log(response);
+        }, function (error) {
+            console.log(error);
+        });
