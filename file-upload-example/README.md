@@ -88,7 +88,7 @@ We just need to pass through our `File` to upload and a set permissions. The fir
   }
 ```
 
-To list files you can pass more parameter for filtering, paging and ordering, but for this tutorial we will list everything.
+To list files you can pass more parameters for filtering, paging and ordering, but for this tutorial we will list everything.
 
 #### Removing a file
 
