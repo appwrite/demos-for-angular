@@ -8,7 +8,7 @@ Please note that in this tutorial I'll only cover Appwrite specific parts.
 
 This is what we will go through in details:
 
-![sneak peak](end-result.png)
+![Sneakpeek](end-result.png)
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ This is what we will go through in details:
 
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-> You can also change the port if `4200` is already in use with `npm start -- --port=4300`
+> You can also change the port if `4200` is already in use with the following command `npm start -- --port=4300`
 
 ## Getting Started
 
@@ -36,7 +36,7 @@ Open the folder with your favorite code editor.
 
 ## Setting project and backend url
 
-Let's look at our `src/environments/environment.ts`, this is where Angular stores all of our environment variables, so here is where we set `project` and `endpoint` for Appwrite
+Let's look at our `src/environments/environment.ts` file, this is where Angular stores all of our environment variables, this is the place where we set `project` and `endpoint` for Appwrite.
 
 Here is an example that I used:
 
@@ -50,7 +50,7 @@ export const environment = {
 
 ## Working with Appwrite
 
-For working with Appwrite we will use a a service (`src/app/appwrite.service.ts`). Most of the service's methods is just a wrapper around Appwrite's SDK Storage API methods.   
+For working with Appwrite, we will use a a service (`src/app/appwrite.service.ts`). Most of the service's methods is just a wrapper around Appwrite's SDK Storage API methods.   
 I'll wrap every promise around an `Observable` to be consistent with Angular's built-in `HttpClient`.
 
 ### Detail about our service
@@ -66,9 +66,9 @@ I'll wrap every promise around an `Observable` to be consistent with Angular's b
   // ...
 ```
 
-With this as soon as the service is creating the `endpoint` and `project` is also set and since our service is provided in root it will be only created once across the whole app. 
+With the above code, as soon as the service is created, the `endpoint` and `project` is also set. Since our service is provided in root it will be only created once across the whole app. 
 
-Removing and uploading a file requires a valid user session, we are only focusing on Storage API in this tutorial so we will use an already created user through the Appwrite console. __Please make sure__ to replace `email` and `password` in `dummyLogin` function.
+Removing and uploading a file requires a valid user session, we are only focusing on Storage API in this tutorial. Therefor we will use an already created user through the Appwrite console. __Please make sure__ to replace `email` and `password` in the `dummyLogin` function.
 
 #### Uploading a file
 
@@ -78,7 +78,7 @@ Removing and uploading a file requires a valid user session, we are only focusin
   }
 ```
 
-We just need to pass through our `File` to upload and a set permissions. The first array is an array for `read` permissions, the second is for `write`. For this tutorial we wil use `*` (wildcard) which means this is available publicly. You can learn more about permissions [here](https://appwrite.io/docs/permissions).
+We just need to pass through our `File` to upload and a set permissions. The first array is an array for `read` and the second is for `write` permissions. For this tutorial we wil use `*` (wildcard) which means this is available publicly. You can learn more about permissions [here](https://appwrite.io/docs/permissions).
 
 #### Listing the files
 
@@ -88,7 +88,7 @@ We just need to pass through our `File` to upload and a set permissions. The fir
   }
 ```
 
-To list files you can pass more parameter for filtering, paging and ordering, but for this tutorial we will list everything.
+To list files you can pass more parameters for filtering, paging and ordering, but for this tutorial we will list everything.
 
 #### Removing a file
 
@@ -98,7 +98,7 @@ To list files you can pass more parameter for filtering, paging and ordering, bu
   }
 ```
 
-To remove a file you only need to pass the file's `id`.
+To remove a file, you only need to pass the file's `id`.
 
 #### Previewing a file
 
@@ -118,7 +118,7 @@ To preview a file you'll need the `fileId` and optionally you can also set `widt
   }
 ```
 
-To get a download link we'll need the `fileId` and this will return a simple string that we can bind to an `a` tag `href` property.
+To get a download link, we'll need the `fileId` and this will return a simple string that we can bind to an `a` tag `href` property.
 
 ### Closing words
 
@@ -134,6 +134,6 @@ Everything else is plain old Angular stuff and wiring together our created `Appw
 
 ## Congratulations! 🥳 🥳 🥳
 
-Give yourself a pat on the back, since you just successfully created a file upload web app using Appwrite and Angular! You should now have enough knowledge in order to use the Storage API with Appwrite and Angular and if you have any more questions do not hesitate to contact us on [Discord](https://discord.gg/ZFwqr3S) and if you notice any errors with this tutorial then feel free to raise an Issue or PR in the [GitHub of this tutorial](https://github.com/appwrite/demos-for-angular/).
+Give yourself a pat on the back, since you just successfully created a file upload web app using Appwrite and Angular! You should now have enough knowledge in order to use the Storage API with Appwrite and Angular and if you have any more questions do not hesitate to contact us on [Discord](https://appwrite.io/discord) and if you notice any errors with this tutorial then feel free to raise an Issue or PR in the [GitHub of this tutorial](https://github.com/appwrite/demos-for-angular/).
 
 Thank you for following the tutorial from all of us at the Appwrite Team.
