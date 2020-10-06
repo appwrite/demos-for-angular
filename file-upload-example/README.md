@@ -98,7 +98,7 @@ To list files you can pass more parameters for filtering, paging and ordering, b
   }
 ```
 
-To remove a file you only need to pass the file's `id`.
+To remove a file, you only need to pass the file's `id`.
 
 #### Previewing a file
 
