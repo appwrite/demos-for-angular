@@ -36,7 +36,7 @@ Open the folder with your favorite code editor.
 
 ## Setting project and backend url
 
-Let's look at our `src/environments/environment.ts`, this is where Angular stores all of our environment variables, so here is where we set `project` and `endpoint` for Appwrite
+Let's look at our `src/environments/environment.ts` file, this is where Angular stores all of our environment variables, this is the place where we set `project` and `endpoint` for Appwrite.
 
 Here is an example that I used:
 
