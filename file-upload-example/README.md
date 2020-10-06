@@ -8,7 +8,7 @@ Please note that in this tutorial I'll only cover Appwrite specific parts.
 
 This is what we will go through in details:
 
-![sneak peak](end-result.png)
+![Sneakpeek](end-result.png)
 
 ## Prerequisites
 
