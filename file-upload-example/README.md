@@ -68,7 +68,7 @@ I'll wrap every promise around an `Observable` to be consistent with Angular's b
 
 With the above code, as soon as the service is created, the `endpoint` and `project` is also set. Since our service is provided in root it will be only created once across the whole app. 
 
-Removing and uploading a file requires a valid user session, we are only focusing on Storage API in this tutorial so we will use an already created user through the Appwrite console. __Please make sure__ to replace `email` and `password` in `dummyLogin` function.
+Removing and uploading a file requires a valid user session, we are only focusing on Storage API in this tutorial. Therefor we will use an already created user through the Appwrite console. __Please make sure__ to replace `email` and `password` in the `dummyLogin` function.
 
 #### Uploading a file
 
