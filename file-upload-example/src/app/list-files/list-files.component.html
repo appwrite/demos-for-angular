@@ -1,0 +1,54 @@
+<mat-card style="width: 100%;" class="mat-elevation-z24">
+  <mat-card-title>
+    List of files
+  </mat-card-title>
+  <ng-container
+    *ngIf="files?.length > 0; else noFilesTemplate"
+  >
+    <div
+      *ngFor="let file of files"
+    >
+      <mat-expansion-panel style="margin-top: 5px; margin-bottom: 5px;">
+        <mat-expansion-panel-header>
+          {{ file.name }}
+        </mat-expansion-panel-header>
+        <ng-template matExpansionPanelContent>
+          <div style="display: flex;">
+            <div style="display: flex; place-items: center">
+              <img [src]="previewFileSource(file.$id)">
+            </div>
+            <span>
+              <p>File id: {{ file.$id }}</p>
+              <p>File size: {{ formatFileSize(file.sizeOriginal) }}</p>
+              <p>File type: {{ file.mimeType }}</p>
+              <p>Date created: {{ (file.dateCreated * 1000) | date: 'y MMMM dd HH:mm:ss' }}</p>
+            </span>
+          </div>
+          <p style="text-align: end;">
+            <a [href]="downloadFileLink(file.$id)">
+              <button mat-button>Download file</button>
+            </a>
+            <button
+              mat-button
+              (click)="removeFile(file.$id)"
+              color="error"
+            >
+              Delete file
+            </button>
+          </p>
+        </ng-template>
+    </mat-expansion-panel>
+  </div>
+  </ng-container>
+  <ng-template #noFilesTemplate>
+    <p style="text-align: center;">
+      Please upload a file by clicking to the "Add file" button
+    </p>
+  </ng-template>
+
+  <mat-card-actions [align]="'end'">
+    <button mat-raised-button color="primary" (click)="fileInput.click()">Add file</button>
+    <input hidden (change)="onFileSelected($event?.target?.files[0])" #fileInput type="file">
+  </mat-card-actions>
+
+</mat-card>
