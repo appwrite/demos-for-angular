@@ -36,7 +36,7 @@ Open the folder with your favorite code editor.
 
 ## Setting project and backend url
 
-Let's look at our `src/environments/environment.ts` file, this is where Angular stores all of our environment variables, this is the place where we set `project` and `endpoint` for Appwrite.
+Let's look at our `src/environments/environment.ts` file, this is where Angular stores all of our environment variables, this is the place where we set `project`, `bucketId` and `endpoint` for Appwrite.
 
 Here is an example that I used:
 
@@ -44,7 +44,8 @@ Here is an example that I used:
 export const environment = {
   production: false,
   endpoint: 'http://localhost/v1', // replace with your own appwrite server ip
-  project: '5f7860217c7e7' // replace with your own appwrite project id
+  project: '5f7860217c7e7', // replace with your own appwrite project id
+  bucketId: '633affa6c955fde12345', // replace with your own storage bucket i
 };
 ```
 
@@ -60,8 +61,7 @@ I'll wrap every promise around an `Observable` to be consistent with Angular's b
 ```ts
   // ...
   constructor() {
-    this.sdk.setEndpoint(environment.endpoint);
-    this.sdk.setProject(environment.project);
+    this.client.setEndpoint(environment.endpoint).setProject(environment.project);
   }
   // ...
 ```
@@ -74,17 +74,17 @@ Removing and uploading a file requires a valid user session, we are only focusin
 
 ```ts
   public uploadFile(file: File): Observable<object> {
-    return from(this.sdk.storage.createFile(file, ['*'], ['*']));
+    return from(this.storage.createFile(this.bucketId, file.name, file));
   }
 ```
 
-We just need to pass through our `File` to upload and a set permissions. The first array is an array for `read` and the second is for `write` permissions. For this tutorial we wil use `*` (wildcard) which means this is available publicly. You can learn more about permissions [here](https://appwrite.io/docs/permissions).
+We just need to pass through our `File` to upload and a set permissions. By default the current user is granted with all permissions. We use default permissions for this example. You can learn more about permissions [here](https://appwrite.io/docs/permissions).
 
 #### Listing the files
 
 ```ts
   public listAllStorageFiles(): Observable<object> {
-    return from(this.sdk.storage.listFiles(null, null, null, null));
+    return from(this.storage.listFiles(this.bucketId));
   }
 ```
 
@@ -94,27 +94,27 @@ To list files you can pass more parameters for filtering, paging and ordering, b
 
 ```ts
   public removeFile(id: string): Observable<object> {
-    return from(this.sdk.storage.deleteFile(id));
+    return from(this.storage.deleteFile(this.bucketId, id));
   }
 ```
 
-To remove a file, you only need to pass the file's `id`.
+To remove a file, you need to pass the file's `bucketId` and `id`.
 
 #### Previewing a file
 
 ```ts
-  public previewFile(id: string): string {
-    return this.sdk.storage.getFilePreview(id, 100, 100, null, 'fff', null);
+  public previewFile(fileId: string): URL {
+    return this.storage.getFilePreview(this.bucketId, fileId, 100, 100, 'left');
   }
 ```
 
-To preview a file you'll need the `fileId` and optionally you can also set `width`, `height`, `quality`, `backgroundColor` (hex code without `#`) and `output` to convert your file into your needs. For now we will request a `100×100` preview on a white background.
+To preview a file you'll need the `fileId` and optionally you can also set `width`, `height`, `gravity` etc to convert your file into your needs. For now we will request a `100×100` preview. You can read about more options [here](https://appwrite.io/docs/client/storage?sdk=web-default#storageGetFilePreview).
 
 #### Downloading a file
 
 ```ts
-  public downloadFileLink(id: string): string {
-    return this.sdk.storage.getFileDownload(id);
+  public downloadFileLink(id: string): URL {
+    return this.storage.getFileDownload(this.bucketId, id);
   }
 ```
 

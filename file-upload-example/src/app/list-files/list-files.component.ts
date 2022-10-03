@@ -30,11 +30,11 @@ export class ListFilesComponent implements OnInit {
     });
   }
 
-  public downloadFileLink(id: string): string {
+  public downloadFileLink(id: string): URL {
     return this.appwriteService.downloadFileLink(id);
   }
 
-  public previewFileSource(id: string): string {
+  public previewFileSource(id: string): URL {
     return this.appwriteService.previewFile(id);
   }
 
