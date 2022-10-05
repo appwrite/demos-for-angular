@@ -1,3 +1,5 @@
+/**this is typescript code*/
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListFilesComponent } from './list-files.component';
