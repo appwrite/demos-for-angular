@@ -61,7 +61,9 @@ I'll wrap every promise around an `Observable` to be consistent with Angular's b
 ```ts
   // ...
   constructor() {
-    this.client.setEndpoint(environment.endpoint).setProject(environment.project);
+    this.client
+      .setEndpoint(environment.endpoint)
+      .setProject(environment.project);
   }
   // ...
 ```
@@ -74,7 +76,9 @@ Removing and uploading a file requires a valid user session, we are only focusin
 
 ```ts
   public uploadFile(file: File): Observable<object> {
-    return from(this.storage.createFile(this.bucketId, file.name, file));
+    return from(
+      this.storage.createFile(this.bucketId, file.name, file)
+    );
   }
 ```
 
@@ -84,7 +88,9 @@ We just need to pass through our `File` to upload and a set permissions. By defa
 
 ```ts
   public listAllStorageFiles(): Observable<object> {
-    return from(this.storage.listFiles(this.bucketId));
+    return from(
+      this.storage.listFiles(this.bucketId)
+    );
   }
 ```
 
@@ -94,7 +100,9 @@ To list files you can pass more parameters for filtering, paging and ordering, b
 
 ```ts
   public removeFile(id: string): Observable<object> {
-    return from(this.storage.deleteFile(this.bucketId, id));
+    return from(
+      this.storage.deleteFile(this.bucketId, id)
+    );
   }
 ```
 

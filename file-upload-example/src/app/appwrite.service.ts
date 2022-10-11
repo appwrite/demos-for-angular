@@ -9,16 +9,18 @@ import { Client, Account, Storage } from 'appwrite';
 })
 export class AppwriteService {
 
-   private readonly client = new Client();
+  private readonly client = new Client();
 
-   private readonly account = new Account(this.client);
+  private readonly account = new Account(this.client);
 
-   private readonly storage = new Storage(this.client);
+  private readonly storage = new Storage(this.client);
 
-   private readonly bucketId = environment.bucketId;
+  private readonly bucketId = environment.bucketId;
 
   constructor() {
-    this.client.setEndpoint(environment.endpoint).setProject(environment.project);
+    this.client
+      .setEndpoint(environment.endpoint)
+      .setProject(environment.project);
   }
 
   public listAllStorageFiles(): Observable<object> {
@@ -42,11 +44,12 @@ export class AppwriteService {
   }
 
   public dummyLogin(): Observable<object> {
-    return from(this.account.createEmailSession('test@test.com', 'Password123'));
+    return from(
+      this.account.createEmailSession('test@test.com', 'Password123')
+    );
   }
 
   public getUser(): Observable<object> {
     return from(this.account.get());
   }
-
 }
