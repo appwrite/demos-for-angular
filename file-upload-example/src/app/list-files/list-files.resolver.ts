@@ -1,16 +1,6 @@
-import { Injectable } from '@angular/core';
-import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
-import { Observable } from 'rxjs';
+import { inject } from '@angular/core';
+import { ResolveFn } from '@angular/router';
 import { AppwriteService } from '../appwrite.service';
 
-@Injectable({ providedIn: 'root' })
-export class ListFilesResolver implements Resolve<object> {
-
-  constructor(
-    private readonly appwriteService: AppwriteService
-  ) {}
-
-  resolve(route: ActivatedRouteSnapshot): Observable<object> | Promise<object> | object {
-    return this.appwriteService.listAllStorageFiles();
-  }
-}
+export const listFilesResolver: ResolveFn<object> = () =>
+  inject(AppwriteService).listAllStorageFiles();
